@@ -785,10 +785,11 @@ namespace ShareX
                     Helpers.OpenFolderWithFile(Info.FilePath);
                 }
 
-                if (Info.TaskSettings.AfterCaptureJob.HasFlag(AfterCaptureTasks.ScanQRCode) && Info.DataType == EDataType.Image)
-                {
-                    QRCodeForm.OpenFormDecodeFromFile(Info.FilePath).ShowDialog();
-                }
+            }
+
+            if (Info.TaskSettings.AfterCaptureJob.HasFlag(AfterCaptureTasks.ScanQRCode) && Info.DataType == EDataType.Image)
+            {
+                QRCodeForm.OpenFormDecodeFromBitmap(Info.Metadata.Image).ShowDialog();
             }
         }
 

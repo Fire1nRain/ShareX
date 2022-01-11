@@ -89,6 +89,14 @@ namespace ShareX
             return form;
         }
 
+        public static QRCodeForm OpenFormDecodeFromBitmap(Bitmap bitmap)
+        {
+            QRCodeForm form = new QRCodeForm();
+            form.tcMain.SelectedTab = form.tpDecode;
+            form.DecodeFromBitmap(bitmap);
+            return form;
+        }
+
         public static QRCodeForm OpenFormDecodeFromScreen()
         {
             QRCodeForm form = Instance;
@@ -153,6 +161,14 @@ namespace ShareX
                         DecodeImage(bmp);
                     }
                 }
+            }
+        }
+
+        private void DecodeFromBitmap(Bitmap bitmap)
+        {
+            if (bitmap != null)
+            {
+                DecodeImage(bitmap);
             }
         }
 
